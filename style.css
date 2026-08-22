@@ -461,16 +461,19 @@ nav ul li a:hover::after {
     display: block;
     margin: 30px auto;
     width: fit-content;
-    border: 1px solid #fff;
+    background: #c77dff;
+    border: none;
     padding: 14px 50px;
     border-radius: 40px;
     text-decoration: none;
     color: #000000;
-    transition: background 0.5s;
+    font-weight: 600;
+    cursor: pointer;
 }
 
 .btn:hover {
-    background: #f0ece2;
+    background: #c77dff;
+    color: #000000;
 }
 
 /* ----------- Certificate ---------- */
@@ -607,13 +610,16 @@ nav ul li a:hover::after {
 
 .btn.btn2 {
     display: inline-block;
+    background: #c77dff;
+    color: #000000;
     border-radius: 40px;
-    transition: background 0.8s;
-    color: black;
+    border: none;
+    font-weight: 600;
 }
 
 .btn.btn2:hover {
-    background: #f0ece2;
+    background: #c77dff;
+    color: #000000;
 }
 
 .Name_container h2 {
@@ -677,6 +683,28 @@ nav .fa-solid {
     display: block;
     font-size: 15px;
     font-weight: 500;
+}
+
+/* Ensure Download Resume, See More, and Submit buttons stay identical with no hover shifts */
+.contact-left .btn,
+.contact-left .btn:hover,
+#projects .btn,
+#projects .btn:hover,
+.contact-right form .btn2,
+.contact-right form .btn2:hover,
+.btn,
+.btn:hover {
+    background-color: #f0ece2 !important;
+    color: #000000 !important;
+    border: none !important;
+    border-radius: 40px !important;
+    padding: 14px 50px !important;
+    font-size: 18px !important;
+    font-weight: 500 !important;
+    transform: none !important;
+    box-shadow: none !important;
+    cursor: pointer !important;
+    text-decoration: none !important;
 }
 
 /* ==================== 3D TILT TWEAKS ==================== */
