@@ -56,51 +56,48 @@ const badgeFloat = gsap.to('.badge-wrapper', {
     ease: "sine.inOut"
 });
 
-// 2. Target Interactive 3D Tilt Elements
-document.querySelectorAll('.skill-card, .cert-card, .badge-wrapper, .about-col-1 img').forEach((card) => {
-    
-    card.addEventListener('mouseenter', () => {
-        // Pause badge floating smoothly if hovering over badge
-        if (card.classList.contains('badge-wrapper')) {
-            badgeFloat.pause();
-        }
-    });
-
-    card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
+// 2. Target Interactive 3D Tilt Elements (Desktop Only)
+if (window.innerWidth > 768) {
+    document.querySelectorAll('.skill-card, .cert-card, .badge-wrapper, .about-col-1 img').forEach((card) => {
         
-        // Calculate exact center distance
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
-
-        // Smooth spring-like tilt
-        gsap.to(card, {
-            rotationY: x * 0.08,
-            rotationX: -y * 0.08,
-            transformPerspective: 1000,
-            ease: "power2.out", // Smooth easing prevents corner jitter
-            duration: 0.4,
-            overwrite: "auto"
-        });
-    });
-
-    card.addEventListener('mouseleave', () => {
-        // Reset tilt position
-        gsap.to(card, {
-            rotationY: 0,
-            rotationX: 0,
-            y: 0,
-            ease: "power2.out",
-            duration: 0.6,
-            onComplete: () => {
-                // Resume gentle floating if leaving the badge
-                if (card.classList.contains('badge-wrapper')) {
-                    badgeFloat.resume();
-                }
+        card.addEventListener('mouseenter', () => {
+            if (card.classList.contains('badge-wrapper')) {
+                badgeFloat.pause();
             }
         });
+
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+
+            gsap.to(card, {
+                rotationY: x * 0.08,
+                rotationX: -y * 0.08,
+                transformPerspective: 1000,
+                ease: "power2.out",
+                duration: 0.4,
+                overwrite: "auto"
+            });
+        });
+
+        card.addEventListener('mouseleave', () => {
+            gsap.to(card, {
+                rotationY: 0,
+                rotationX: 0,
+                y: 0,
+                ease: "power2.out",
+                duration: 0.6,
+                onComplete: () => {
+                    if (card.classList.contains('badge-wrapper')) {
+                        badgeFloat.resume();
+                    }
+                }
+            });
+        });
     });
-});
+}
 
 // ==================== GOOGLE SHEET CONTACT FORM ==================== //
 

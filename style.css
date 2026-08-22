@@ -8,6 +8,7 @@
 
 html {
     scroll-behavior: smooth;
+    background-color: #1a0b2e;
 }
 
 body {
@@ -15,18 +16,37 @@ body {
     background-attachment: fixed;
     color: #ffffff;
     line-height: 1.6;
+    min-height: 100vh;
+    min-height: 100dvh;
+    overflow-x: hidden;
 }
 
-/* Hardware Acceleration: Forces mobile GPU rendering to prevent glassmorphism blur lag */
+/* Fix Glassmorphic White Flash: Add dark fallback color behind blur */
+.about-col-2, 
+.skill-card, 
+.cert-card, 
+.contact-left, 
+.contact-right, 
+.thanks-container p, 
+.project-1, .project-2, .project-3, .project-4 {
+    background-color: rgba(26, 11, 46, 0.75) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+/* Disable hardware acceleration hack that causes text ghosting */
 .about-col-2, .Skill-container, .cert-card, nav ul, .contact-left, .contact-right {
-    will-change: transform;
-    transform: translateZ(0);
+    will-change: auto !important;
+    transform: none;
 }
 
 /* ==================== HERO / HEADER SECTION ==================== */
 #header {
     width: 100%;
     min-height: 100vh;
+    min-height: 100dvh;
     background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('Images/Background Image.jpg');
     background-size: cover;
     background-position: center;
@@ -675,6 +695,12 @@ nav .fa-solid {
 /* ------------ CSS FOR SMALL SCREENS / MOBILE ---------- */
 
 @media only screen and (max-width: 768px) {
+    
+    body, #header {
+        background-attachment: scroll !important;
+    }
+    
+    
     .container {
         padding: 15px 5%;
     }
