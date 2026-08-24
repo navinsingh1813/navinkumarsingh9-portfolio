@@ -56,7 +56,7 @@ const badgeFloat = gsap.to('.badge-wrapper', {
     ease: "sine.inOut"
 });
 
-// 2. Target Interactive 3D Tilt Elements (Desktop Only)
+// 2. Optimized 3D Tilt Elements (Desktop Only)
 if (window.innerWidth > 768) {
     document.querySelectorAll('.skill-card, .cert-card, .badge-wrapper, .about-col-1 img').forEach((card) => {
         
@@ -68,17 +68,19 @@ if (window.innerWidth > 768) {
 
         card.addEventListener('mousemove', (e) => {
             const rect = card.getBoundingClientRect();
-            
             const x = e.clientX - rect.left - rect.width / 2;
             const y = e.clientY - rect.top - rect.height / 2;
 
-            gsap.to(card, {
-                rotationY: x * 0.08,
-                rotationX: -y * 0.08,
-                transformPerspective: 1000,
-                ease: "power2.out",
-                duration: 0.4,
-                overwrite: "auto"
+            // Use requestAnimationFrame for smooth 60fps frame updates
+            requestAnimationFrame(() => {
+                gsap.to(card, {
+                    rotationY: x * 0.05, // Slightly lower intensity to avoid micro-snapping
+                    rotationX: -y * 0.05,
+                    transformPerspective: 1000,
+                    ease: "power1.out",
+                    duration: 0.3,
+                    overwrite: "auto"
+                });
             });
         });
 
@@ -88,7 +90,7 @@ if (window.innerWidth > 768) {
                 rotationX: 0,
                 y: 0,
                 ease: "power2.out",
-                duration: 0.6,
+                duration: 0.5,
                 onComplete: () => {
                     if (card.classList.contains('badge-wrapper')) {
                         badgeFloat.resume();
