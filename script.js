@@ -71,16 +71,13 @@ if (window.innerWidth > 768) {
             const x = e.clientX - rect.left - rect.width / 2;
             const y = e.clientY - rect.top - rect.height / 2;
 
-            // Use requestAnimationFrame for smooth 60fps frame updates
-            requestAnimationFrame(() => {
-                gsap.to(card, {
-                    rotationY: x * 0.05, // Slightly lower intensity to avoid micro-snapping
-                    rotationX: -y * 0.05,
-                    transformPerspective: 1000,
-                    ease: "power1.out",
-                    duration: 0.3,
-                    overwrite: "auto"
-                });
+            gsap.to(card, {
+                rotationY: x * 0.08,
+                rotationX: -y * 0.08,
+                transformPerspective: 1000,
+                ease: "none",
+                duration: 0.1,
+                overwrite: "auto"
             });
         });
 
@@ -90,7 +87,7 @@ if (window.innerWidth > 768) {
                 rotationX: 0,
                 y: 0,
                 ease: "power2.out",
-                duration: 0.5,
+                duration: 0.4,
                 onComplete: () => {
                     if (card.classList.contains('badge-wrapper')) {
                         badgeFloat.resume();
