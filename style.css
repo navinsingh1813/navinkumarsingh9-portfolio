@@ -12,7 +12,11 @@ html {
 }
 
 body {
-   background: linear-gradient(135deg, #240046 0%, #5e548e 50%, #3c096c 100%);
+    background: 
+        linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(135deg, #240046 0%, #5e548e 50%, #3c096c 100%);
+    background-size: 40px 40px, 40px 40px, 100% 100%;
     color: #ffffff;
     line-height: 1.6;
     min-height: 100vh;
@@ -67,6 +71,38 @@ nav {
 .logo {
     width: 250px;
     background: transparent;
+}
+
+.logo-container {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    border-radius: 6px;
+}
+
+.logo-container::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -150%;
+    width: 50%;
+    height: 200%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(240, 237, 67, 0.35),
+        rgba(255, 255, 255, 0.6),
+        rgba(240, 237, 67, 0.35),
+        transparent
+    );
+    transform: rotate(25deg);
+    animation: dataScan 3s infinite cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+}
+
+@keyframes dataScan {
+    0% { left: -150%; }
+    35%, 100% { left: 150%; }
 }
 
 nav ul {
