@@ -129,3 +129,50 @@ if (form) {
         });
     });
 }
+
+// ==================== CURSOR-REACTIVE BACKGROUND GRADIENT ==================== //
+if (window.innerWidth > 768) {
+    document.addEventListener('mousemove', (e) => {
+        const x = (e.clientX / window.innerWidth) * 100;
+        const y = (e.clientY / window.innerHeight) * 100;
+        
+        document.body.style.setProperty('--mouse-x', `${x.toFixed(2)}%`);
+        document.body.style.setProperty('--mouse-y', `${y.toFixed(2)}%`);
+    });
+}
+
+// ==================== DOWNLOAD RESUME PARTICLE BURST ==================== //
+const resumeBtn = document.querySelector('.contact-left .btn');
+
+if (resumeBtn) {
+    resumeBtn.addEventListener('click', function(e) {
+        const rect = this.getBoundingClientRect();
+        
+        // Spawn 8 lightweight particles around click center
+        for (let i = 0; i < 8; i++) {
+            const particle = document.createElement('span');
+            particle.classList.add('btn-particle');
+            
+            // Position particle at the center of the button
+            particle.style.left = `${rect.width / 2}px`;
+            particle.style.top = `${rect.height / 2}px`;
+            
+            // Calculate random trajectory angles
+            const angle = (i / 8) * (2 * Math.PI) + (Math.random() * 0.5);
+            const distance = 40 + Math.random() * 30; // Explosion radius in pixels
+            const dx = Math.cos(angle) * distance;
+            const dy = Math.sin(angle) * distance;
+            
+            particle.style.setProperty('--dx', `${dx}px`);
+            particle.style.setProperty('--dy', `${dy}px`);
+            
+            this.appendChild(particle);
+            
+            // Clean up DOM element after animation ends
+            setTimeout(() => {
+                particle.remove();
+            }, 600);
+        }
+    });
+}
+
