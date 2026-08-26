@@ -4,8 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Portfolio Website</title>
-<link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/7cb489ee6c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Deferred Scripts for Performance -->
+    <script src="https://kit.fontawesome.com/7cb489ee6c.js" crossorigin="anonymous" defer></script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+    <script src="script.js" defer></script>
 
     <!-- Priority 3: Browser Favicon -->
     <link rel="icon" type="image/png" href="Images/OGIcon.png">
@@ -18,15 +24,13 @@
     <meta property="og:url" content="https://navinsingh1813.github.io/navinkumarsingh9-portfolio/">
 </head>
 
-</head>
-
- <body oncontextmenu="return false;">
-<!-- AFTER (Updated header block) -->
+<body oncontextmenu="return false;">
+<!-- Header Section -->
 <div id="header">
     <div class="container">
         <nav>
             <div class="logo-container">
-        <img src="Images/newlogo.png" class="logo" alt="Navin Kumar Singh Logo">
+                <img src="Images/newlogo.png" class="logo" alt="Navin Kumar Singh Logo">
             </div>
             <ul id="sidemenu">
                 <li><a href="#header">Home</a></li>
@@ -39,7 +43,6 @@
             <i class="fa-solid fa-bars" onclick="openmenu()"></i>
         </nav>
 
-        <!-- Wrapped in a flex container for stability across screen sizes -->
         <div class="header-text-container">
             <div class="hero-left">
                 <h1>Hello, I'm</h1>
@@ -58,30 +61,29 @@
         </div>
     </div>
 </div>
-<!-- ---------about----------- -->
 
+<!-- About Section -->
 <div id="about">
     <div class="container">
         <div class="row">
             <div class="about-col-1">
-                <img src="Images/Profile Picture  (Small).png">
+                <img src="Images/Profile Picture  (Small).png" alt="Profile Picture" loading="lazy">
             </div>
             <div class="about-col-2">
                 <h1 class="sub-title">About Me</h1>
                 <p>Hi, I’m Navin Kumar Singh, a Microsoft Certified: Power BI Data Analyst Associate with a strong interest in data analytics and dashboard development. I enjoy working with data, discovering meaningful patterns, and turning complex information into simple insights that support better business decisions.
                     <br><br>I primarily work with Power BI, SQL Server, and Excel, with hands-on experience in ETL processes, data cleaning, data modeling, and interactive dashboard development. I also use Power BI Service for report publishing, collaboration, and data security.
-                    <br><br>real-world analytics projects, I’ve strengthened both my technical and problem-solving skills:
+                    <br><br>In real-world analytics projects, I’ve strengthened both my technical and problem-solving skills:
                         <ul>
                             <br><br><li>Analyzed 10K+ retail transaction records and developed dashboards that contributed to a 15% increase in sales and a 10% improvement in customer retention.</li>
-                             <li>Built a Credit Card Analytics Dashboard by analyzing 667K+ transactions and generating insights from $57M in revenue through KPI reporting and trend analysis.</li>
+                            <li>Built a Credit Card Analytics Dashboard by analyzing 667K+ transactions and generating insights from $57M in revenue through KPI reporting and trend analysis.</li>
                         </ul>
                     <br><br>What I enjoy most about data analytics is transforming raw data into meaningful stories and actionable insights. I’m continuously learning, improving my skills, and exploring better ways to build impactful data-driven solutions.
-                    </p>
+                </p>
 
                 <div class="tab-titles">
                     <p class="tab-links active-link" onclick="opentab('technical_skills')">Technical Skills</p>
                     <p class="tab-links" onclick="opentab('education')">Education</p>
-                    <!-- <p class="tab-links" onclick="opentab('experience')">Experience</p> -->
                 </div>
                 <div class="tab-contents active-tab" id="technical_skills">
                     <ul>
@@ -100,14 +102,11 @@
     </div>
 </div> 
 
-<!-- -----------------------Technical Skills------------------- -->
-
+<!-- Technical Skills Section -->
 <div id="Technical_Skill">
     <div class="container">
         <h1 class="Sub-title-skill">Technical Skills</h1>
         <div class="skills-grid">
-            
-            <!-- Category 1 -->
             <div class="skill-card">
                 <h3><i class="fa-solid fa-database"></i> Core Tools</h3>
                 <div class="badge-container">
@@ -117,7 +116,6 @@
                 </div>
             </div>
 
-            <!-- Category 2 -->
             <div class="skill-card">
                 <h3><i class="fa-solid fa-diagram-project"></i> Data Modeling & ETL</h3>
                 <div class="badge-container">
@@ -129,7 +127,6 @@
                 </div>
             </div>
 
-            <!-- Category 3 -->
             <div class="skill-card">
                 <h3><i class="fa-solid fa-chart-column"></i> Reporting & Analytics </h3>
                 <div class="badge-container">
@@ -142,26 +139,25 @@
                     <span class="skill-badge">CRITICAL THINKING</span>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
 
-<!-- ---------------- Projects ---------------- -->
+<!-- Projects Section -->
 <div id="projects">
     <div class="container">
         <h1 class="sub-title">My Projects</h1>
         <div class="project-list">
             <div class="project-1">
-                <img src="Images/Target E-commerce Sales analysis.jpeg" alt="E-commerce Sales Analysis Report">
+                <img src="Images/Target E-commerce Sales analysis.jpeg" alt="E-commerce Sales Analysis Report" loading="lazy">
                 <div class="layer">
-                    <h3>Target E-Commarce Sales Analysis | SQL Server </h3>
+                    <h3>Target E-Commerce Sales Analysis | SQL Server</h3>
                     <p>Performed exploratory and business-focused analysis on Target Brazil's e-commerce operations using SQL Server.</p>
                     <a href="https://github.com/navinsingh1813/Target-Brazil-Ecommerce-SQL-Analysis" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-up-right-from-square"></i></a>
                 </div>
             </div>
             <div class="project-2">
-                <img src="Images/Linkedin job analysis.jpeg" alt="Linkedin Job Analysis Project">
+                <img src="Images/Linkedin job analysis.jpeg" alt="Linkedin Job Analysis Project" loading="lazy">
                 <div class="layer">
                     <h3>Linkedin India Job Market Analysis | Power BI & SQL Server</h3>
                     <p>Developed an interactive Power BI dashboard to analyze hiring trends, applicant behavior, industry demand, and geographical opportunities across India using LinkedIn job posting data.</p>
@@ -169,15 +165,15 @@
                 </div>
             </div>
             <div class="project-3">
-                <img src="Images/Credit card customers and Transaction analysis.jpeg" alt="Credit Card Customer & Transaction Analysis">
+                <img src="Images/Credit card customers and Transaction analysis.jpeg" alt="Credit Card Customer & Transaction Analysis" loading="lazy">
                 <div class="layer">
                     <h3>Credit Card Customer & Transaction Analysis | Power BI</h3>
                     <p>Developed an end-to-end analytics solution using SQL Server and Power BI to analyze customer demographics, transaction behavior, revenue performance, and spending patterns.</p>
-                    <a href="https://github.com/navinsingh1813/Credit-Card-Customer-Transaction-Analysis"target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-up-right-from-square"></i></a>
+                    <a href="https://github.com/navinsingh1813/Credit-Card-Customer-Transaction-Analysis" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-up-right-from-square"></i></a>
                 </div>
             </div>
             <div class="project-4">
-                <img src="Images/RetailAB Sales analysis Image.jpeg" alt="Retail Sales Performance Analysis">
+                <img src="Images/RetailAB Sales analysis Image.jpeg" alt="Retail Sales Performance Analysis" loading="lazy">
                 <div class="layer">
                     <h3>RetailA/B Sales Analysis | SQL Server & Power BI</h3>
                     <p>Designed and developed an end-to-end Business Intelligence solution using SQL Server and Power BI to analyze retail sales performance, profitability, customer behavior, and regional trends.</p>
@@ -189,16 +185,14 @@
     </div>
 </div>
 
-<!-- ---------------Certificates------------- -->
-
+<!-- Certificate Section -->
 <div id="Certificate">
   <div class="container">
     <h1 class="sub-title">Certificate</h1>
-
     <div class="certificate-container">
       <div class="cert-card">
         <a href="Images/Microsoft Certificate.jpeg" target="_blank">
-          <img src="Images/Microsoft Certificate.jpeg" class="certificate-image">
+          <img src="Images/Microsoft Certificate.jpeg" class="certificate-image" alt="Microsoft Certificate" loading="lazy">
         </a>
         <p>Microsoft Certified: Power BI Data Analyst Associate</p>
       </div>
@@ -206,59 +200,48 @@
   </div>
 </div>
 
-<!-- ---------------Thank you---------- -->
- <div id="thank-you">
+<!-- Thank You Section -->
+<div id="thank-you">
     <div class="container-thanks">
         <h3 class="sub-title-1">Thank you</h3>
         <div class="thanks-container"> 
-            <br>
-            <br><p><em>Thank you for visiting!</em><br>"It means a lot to me that you took the time to explore my portfolio. If you have any questions or would like to connect, feel free to reach out."<br><br>
+            <br><br>
+            <p><em>Thank you for visiting!</em><br>"It means a lot to me that you took the time to explore my portfolio. If you have any questions or would like to connect, feel free to reach out."<br><br></p>
         </div>
     </div>
- </div>
+</div>
 
-<!-- ---------------Contact------------- -->
-
+<!-- Contact Section -->
 <div id="contact">
     <div class="container">
         <div class="row">
-                <div class="contact-left">
-                    <h1 class="sub-title">Contact Me</h1>
-                    <p><i class="fa-regular fa-envelope"></i> nvins1813@gmail.com</p>
-                    <p><i class="fa-solid fa-phone"></i> 8240488058</p>
-                    <br>
-                    <br>
-                    <div class="Name_container">
-                        <h2>Navin Kumar Singh</h2>
-                        <p>Data Analyst</p> 
-                    </div>       
-                    <a href="Images/Navin-Kumar-Singh-Resume.pdf" download="Navin Kumar Singh Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn2">Download Resume</a>
-                </div>
-                <div class="contact-right">
-                    <form name="submit-to-google-sheet">
-                        <input type="text" name="Name" placeholder="Your Name" required>
-                        <input type="email" name="Email" placeholder="Your Email" required>
-                        <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
-                        <button type="submit" class="btn btn2">Submit</button>
-                    </form>
-                    <span id="msg"></span>
-                </div>
+            <div class="contact-left">
+                <h1 class="sub-title">Contact Me</h1>
+                <p><i class="fa-regular fa-envelope"></i> nvins1813@gmail.com</p>
+                <p><i class="fa-solid fa-phone"></i> 8240488058</p>
+                <br><br>
+                <div class="Name_container">
+                    <h2>Navin Kumar Singh</h2>
+                    <p>Data Analyst</p> 
+                </div>       
+                <a href="Images/Navin-Kumar-Singh-Resume.pdf" download="Navin Kumar Singh Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn2">Download Resume</a>
+            </div>
+            <div class="contact-right">
+                <form name="submit-to-google-sheet">
+                    <input type="text" name="Name" placeholder="Your Name" required>
+                    <input type="email" name="Email" placeholder="Your Email" required>
+                    <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                    <button type="submit" class="btn btn2">Submit</button>
+                </form>
+                <span id="msg"></span>
             </div>
         </div>
     </div>
 </div>
 
-    <div class="copyright">
-        <p>Copyright ©️ Navin. <br> Made by : Navin Kumar Singh' Portfolio  <i class="fa-solid fa-chart-line"></i></p>
-    </div>
+<div class="copyright">
+    <p>Copyright ©️ Navin. <br> Made by : Navin Kumar Singh' Portfolio <i class="fa-solid fa-chart-line"></i></p>
 </div>
 
-<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-
-<!-- GSAP Core & ScrollTrigger CDN Links -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
-<script src="script.js"></script>
 </body>
 </html>
